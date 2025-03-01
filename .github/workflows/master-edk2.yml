@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         arch:
-          - ARM
           - AARCH64
           - IA32
           - X64
