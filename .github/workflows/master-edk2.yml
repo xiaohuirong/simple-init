@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         arch:
@@ -32,22 +32,22 @@ jobs:
       - name: Build for ${{matrix.arch}}
         run: bash scripts/build-edk2.sh ${{matrix.arch}}
       - name: Upload Artifact SimpleInit-${{matrix.arch}}.efi
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: SimpleInit-${{matrix.arch}}.efi
           path: build-edk2/Build/SimpleInit/RELEASE_GCC5/${{matrix.arch}}/SimpleInitMain.efi
       - name: Upload Artifact SimpleInit-${{matrix.arch}}.debug
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: SimpleInit-${{matrix.arch}}.debug
           path: build-edk2/Build/SimpleInit/RELEASE_GCC5/${{matrix.arch}}/SimpleInitMain.debug
       - name: Upload Artifact KernelFdtDxe-${{matrix.arch}}.efi
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: KernelFdtDxe-${{matrix.arch}}.efi
           path: build-edk2/Build/SimpleInit/RELEASE_GCC5/${{matrix.arch}}/KernelFdtDxe.efi
       - name: Upload Artifact KernelFdtDxe-${{matrix.arch}}.debug
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: KernelFdtDxe-${{matrix.arch}}.debug
           path: build-edk2/Build/SimpleInit/RELEASE_GCC5/${{matrix.arch}}/KernelFdtDxe.debug
