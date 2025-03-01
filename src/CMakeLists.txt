@@ -44,7 +44,8 @@ if("${ENABLE_ASAN}" STREQUAL "ON")
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize-recover=all -fno-omit-frame-pointer")
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-stack-protector -fsanitize=leak")
 endif()
-
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-error=vla-parameter")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error=vla-parameter")
 add_custom_command(
 	OUTPUT
 		"${CMAKE_CURRENT_BINARY_DIR}/rootfs.c"
