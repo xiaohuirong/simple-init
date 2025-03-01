@@ -29,12 +29,12 @@ jobs:
       - name: Build Initramfs
         run: bash scripts/gen-initramfs.sh build/initramfs.img
       - name: Upload Artifact simple-init
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: simple-init
           path: build/simple-init
       - name: Upload Artifact initramfs.img
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: initramfs.img
           path: build/initramfs.img
